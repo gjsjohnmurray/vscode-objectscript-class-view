@@ -58,27 +58,23 @@ export class AllClassMembersImplementationProvider implements vscode.Implementat
 				var data: QueryData = {
 					query: "SELECT Name, Description, Origin, FormalSpec, ReturnType AS Type, 'method' AS MemberType, Deprecated " +
           "FROM %Dictionary.CompiledMethod WHERE parent->ID = ? AND Abstract = 0 AND Internal = 0 AND Stub IS NULL AND ((Origin = parent->ID) OR (Origin != parent->ID AND NotInheritable = 0)) UNION ALL %PARALLEL " +
-          
-          //"SELECT {fn CONCAT(parent->name,Name)} AS Name, Description, parent->Origin AS Origin, FormalSpec, ReturnType AS Type, 'method' AS MemberType, Deprecated " +
-          //"FROM %Dictionary.CompiledIndexMethod WHERE parent->parent->ID = ? UNION ALL %PARALLEL " +
-          //"SELECT {fn CONCAT(parent->name,Name)} AS Name, Description, parent->Origin AS Origin, FormalSpec, ReturnType AS Type, 'method' AS MemberType, Deprecated " +
-          //"FROM %Dictionary.CompiledQueryMethod WHERE parent->parent->ID = ? UNION ALL %PARALLEL " +
-          //"SELECT {fn CONCAT(parent->name,Name)} AS Name, Description, parent->Origin AS Origin, FormalSpec, ReturnType AS Type, 'method' AS MemberType, Deprecated " +
-          //"FROM %Dictionary.CompiledPropertyMethod WHERE parent->parent->ID = ? UNION ALL %PARALLEL " +
-          //"SELECT {fn CONCAT(parent->name,Name)} AS Name, Description, parent->Origin AS Origin, FormalSpec, ReturnType AS Type, 'method' AS MemberType, Deprecated " +
-          //"FROM %Dictionary.CompiledConstraintMethod WHERE parent->parent->ID = ? UNION ALL %PARALLEL " +
-          
           "SELECT Name, Description, Origin, FormalSpec, Type, 'query' AS MemberType, Deprecated " +
           "FROM %Dictionary.CompiledQuery WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, Type, 'projection' AS MemberType, Deprecated " +
+          "FROM %Dictionary.CompiledProjection WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
           "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'index' AS MemberType, Deprecated " +
           "FROM %Dictionary.CompiledIndex WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'foreignkey' AS MemberType, Deprecated " +
+          "FROM %Dictionary.CompiledForeignKey WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'trigger' AS MemberType, Deprecated " +
+          "FROM %Dictionary.CompiledTrigger WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
           "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'xdata' AS MemberType, Deprecated " +
           "FROM %Dictionary.CompiledXData WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
           "SELECT Name, Description, Origin, NULL AS FormalSpec, RuntimeType AS Type, 'property' AS MemberType, Deprecated " +
           "FROM %Dictionary.CompiledProperty WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
           "SELECT Name, Description, Origin, NULL AS FormalSpec, Type, 'parameter' AS MemberType, Deprecated " +
           "FROM %Dictionary.CompiledParameter WHERE parent->ID = ? AND Internal = 0",
-					parameters: new Array(6).fill(className)
+					parameters: new Array(9).fill(className)
 				};
         const server = await serverForUri(document.uri);
 				const respdata = await makeRESTRequest("POST", 1, "/action/query", server, data);
@@ -109,7 +105,7 @@ export class AllClassMembersImplementationProvider implements vscode.Implementat
               if (!symbolInfo && memobj.Name === 'IDKEY' && memobj.MemberType === 'index') {
                 continue;
               }
-              
+
               const targetSelectionRange = symbolInfo?.selectionRange ?? selectionRange;
               const targetRange = symbolInfo?.range ?? range;
               const item: vscode.LocationLink = {

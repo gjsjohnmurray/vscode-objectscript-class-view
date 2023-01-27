@@ -2,7 +2,7 @@
   "name": "objectscript-class-view",
   "displayName": "InterSystems ObjectScript Class View",
   "description": "View and navigate all class members, including inherited ones",
-  "publisher": "gjsjohnmurray",
+  "publisher": "georgejames",
   "version": "0.0.1",
   "license": "MIT",
   "engines": {

@@ -1,0 +1,7 @@
+{
+    "objectscript.conn": {
+        "server": "cache181",
+        "ns": "SAMPLES",
+        "active": true
+    }
+}

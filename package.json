@@ -1,17 +1,22 @@
 {
   "name": "objectscript-class-view",
   "displayName": "InterSystems ObjectScript Class View",
-  "description": "View information about the current class",
+  "description": "View and navigate all class members, including inherited ones",
   "publisher": "gjsjohnmurray",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.74.0"
   },
   "categories": [
-    "Other"
+    "Programming Languages"
+  ],
+  "keywords": [
+		"intersystems",
+		"objectscript"
   ],
   "extensionDependencies": [
     "intersystems-community.vscode-objectscript",
+    "intersystems-community.servermanager",
     "intersystems.language-server"
   ],
   "activationEvents": [

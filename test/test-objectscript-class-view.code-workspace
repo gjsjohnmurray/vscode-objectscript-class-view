@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "cache181:SAMPLES",
+			"uri": "isfs://cache181:samples/"
+		}
+	],
+	"settings": {}
+}

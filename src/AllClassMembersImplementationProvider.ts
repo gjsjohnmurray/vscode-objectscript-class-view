@@ -56,23 +56,23 @@ export class AllClassMembersImplementationProvider implements vscode.Implementat
 
 				// Query the server to get the metadata of all appropriate class members
 				var data: QueryData = {
-					query: "SELECT Name, Description, Origin, FormalSpec, ReturnType AS Type, 'method' AS MemberType" +
+					query: "SELECT Name, Description, Origin, FormalSpec, ReturnType AS Type, 'method' AS MemberType " +
           "FROM %Dictionary.CompiledMethod WHERE parent->ID = ? AND Abstract = 0 AND Internal = 0 AND Stub IS NULL AND ((Origin = parent->ID) OR (Origin != parent->ID AND NotInheritable = 0)) UNION ALL %PARALLEL " +
-          "SELECT Name, Description, Origin, FormalSpec, Type, 'query' AS MemberType" +
+          "SELECT Name, Description, Origin, FormalSpec, Type, 'query' AS MemberType " +
           "FROM %Dictionary.CompiledQuery WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
-          "SELECT Name, Description, Origin, NULL AS FormalSpec, Type, 'projection' AS MemberType" +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, Type, 'projection' AS MemberType " +
           "FROM %Dictionary.CompiledProjection WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
-          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'index' AS MemberType" +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'index' AS MemberType " +
           "FROM %Dictionary.CompiledIndex WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
-          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'foreignkey' AS MemberType" +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'foreignkey' AS MemberType " +
           "FROM %Dictionary.CompiledForeignKey WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
-          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'trigger' AS MemberType" +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'trigger' AS MemberType " +
           "FROM %Dictionary.CompiledTrigger WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
-          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'xdata' AS MemberType" +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, NULL AS Type, 'xdata' AS MemberType " +
           "FROM %Dictionary.CompiledXData WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
-          "SELECT Name, Description, Origin, NULL AS FormalSpec, RuntimeType AS Type, 'property' AS MemberType" +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, RuntimeType AS Type, 'property' AS MemberType " +
           "FROM %Dictionary.CompiledProperty WHERE parent->ID = ? AND Internal = 0 UNION ALL %PARALLEL " +
-          "SELECT Name, Description, Origin, NULL AS FormalSpec, Type, 'parameter' AS MemberType" +
+          "SELECT Name, Description, Origin, NULL AS FormalSpec, Type, 'parameter' AS MemberType " +
           "FROM %Dictionary.CompiledParameter WHERE parent->ID = ? AND Internal = 0",
 					parameters: new Array(9).fill(className)
 				};

@@ -4,6 +4,7 @@
   "description": "View and navigate all class members, including inherited ones",
   "publisher": "gjsjohnmurray",
   "version": "0.0.1",
+  "license": "MIT",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -14,6 +15,10 @@
 		"intersystems",
 		"objectscript"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gjsjohnmurray/vscode-objectscript-class-view"
+  },
   "extensionDependencies": [
     "intersystems-community.vscode-objectscript",
     "intersystems-community.servermanager",

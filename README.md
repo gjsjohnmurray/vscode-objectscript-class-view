@@ -15,11 +15,14 @@ A quirk of VS Code means the extension is not notified of your request if the cu
 
 `Find All Implementations` displays its results in the References view alongside your code.
 
-<!-- TODO add image -->
+<video controls src="https://github.com/gjsjohnmurray/vscode-objectscript-class-view/raw/HEAD/media/README/OSCV-side.mp4" type="video/mp4">
+</video>
+
 
 The other commands uses the [peeked editor](https://code.visualstudio.com/Docs/editor/editingevolved#_peek) inline presentation.
 
-<!-- TODO add image -->
+<video controls src="https://github.com/gjsjohnmurray/vscode-objectscript-class-view/raw/HEAD/media/README/OSCV-peek.mp4" type="video/mp4">
+</video>
 
 In both presentations the first level of the navigation tree has a node for the class itself plus one for each superclass from which anything is inherited. In this context the superclasses are the immediate superclasses of your class plus their own superclasses recursively.
 

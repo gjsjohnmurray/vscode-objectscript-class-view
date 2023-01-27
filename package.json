@@ -3,10 +3,10 @@
   "displayName": "InterSystems ObjectScript Class View",
   "description": "View and navigate all class members, including inherited ones",
   "publisher": "georgejames",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "engines": {
-    "vscode": "^1.74.0"
+    "vscode": "^1.67.0"
   },
   "categories": [
     "Programming Languages"
@@ -49,7 +49,7 @@
 		"vscode-cache": "^0.3.0"
   },
   "devDependencies": {
-    "@types/vscode": "^1.74.0",
+    "@types/vscode": "^1.67.0",
     "@types/glob": "^8.0.0",
     "@types/mocha": "^10.0.0",
     "@types/node": "16.x",

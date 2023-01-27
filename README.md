@@ -2,6 +2,10 @@
 
 This extension boosts the [InterSystems ObjectScript Extension Pack](https://marketplace.visualstudio.com/items?itemName=intersystems-community.objectscript-pack) by adding a powerful new way to navigate your class definitions.
 
+## Installation
+
+The extension is published on [Marketplace](https://marketplace.visualstudio.com/items?itemName=georgejames.objectscript-class-view). Either install it from there, or search for its identifier `georgejames.objectscript-class-view` in the Extensions view of [VS Code](https://code.visualstudio.com/Download).
+
 ## Features
 
 Use one of the following VS Code commands to populate its **Implementations** feature with information about the current class, icluding inherited properties, methods, parameters and other class members.
@@ -37,3 +41,7 @@ VS Code does not refresh these views automatically. To update the peeked editor 
 ## Known Issues
 
 1. The InterSystems Language Server is used to locate contributed members in superclasses. If the superclass definition triggers warnings or errors these appear in VS Code's Problems panel and will remain there until you open the class (for example by clicking on one of its messages) and then close it.
+
+## Release Notes
+
+See the [CHANGELOG](https://marketplace.visualstudio.com/items/georgejames.objectscript-class-view/changelog) for changes in each release.

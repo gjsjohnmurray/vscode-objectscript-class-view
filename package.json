@@ -3,7 +3,7 @@
   "displayName": "InterSystems ObjectScript Class View",
   "description": "View and navigate all class members, including inherited ones",
   "publisher": "georgejames",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "license": "MIT",
   "engines": {
     "vscode": "^1.67.0"
@@ -21,9 +21,7 @@
     "url": "https://github.com/gjsjohnmurray/vscode-objectscript-class-view"
   },
   "extensionDependencies": [
-    "intersystems-community.vscode-objectscript",
-    "intersystems-community.servermanager",
-    "intersystems.language-server"
+    "intersystems-community.vscode-objectscript"
   ],
   "activationEvents": [
     "onLanguage:objectscript-class"

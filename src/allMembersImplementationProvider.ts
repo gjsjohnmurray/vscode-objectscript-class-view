@@ -4,7 +4,7 @@ import { quoteUDLIdentifier, serverForUri } from "./functions";
 import { makeRESTRequest } from "./makeRESTRequest";
 import { QueryData } from "./types";
 
-export class AllClassMembersImplementationProvider implements vscode.ImplementationProvider {
+export class AllMembersImplementationProvider implements vscode.ImplementationProvider {
 
   public provideImplementation(
     document: vscode.TextDocument,

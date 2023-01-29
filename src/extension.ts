@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import * as Cache from 'vscode-cache';
-import { AllClassMembersImplementationProvider } from './AllClassMembersImplementationProvider';
+import { AllMembersImplementationProvider } from './allMembersImplementationProvider';
 
 /**
  * Cache for cookies from REST requests to InterSystems servers.
@@ -20,7 +20,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		vscode.languages.registerImplementationProvider(
 			{ language: 'objectscript-class' },
-			new AllClassMembersImplementationProvider()
+			new AllMembersImplementationProvider()
 		),
 	);
 }
